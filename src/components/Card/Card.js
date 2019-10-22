@@ -7,7 +7,7 @@ const Card = props => {
     <div className="container">
       <div className="card">
         {props.question}
-        <Button answers={props.answers} />
+        <Button answers={props.answers} correctAnswer={props.correctAnswer} testClick={props.testClick} />
       </div>
     </div>
   );

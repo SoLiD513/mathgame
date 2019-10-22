@@ -8,19 +8,43 @@ import multiply from "./multiply.json";
 import divide from "./divide.json";
 import "./App.css";
 
-let correctGuesses = 0;
-let usersHighScore = 0;
+// let correctGuesses = 0;
+// let usersHighScore = 0;
+// let correctClicked;
 
 class App extends Component {
-  state = {
+  constructor(props) {
+  super(props);
+  this.state = {
     add,
     subtract,
     multiply,
     divide,
-    correctGuesses,
-    usersHighScore
+    correctGuesses: 0,
+    usersHighScore: 0,
+    correctClicked: false
   };
+
+
+}
   
+  // state = {
+  //   add,
+  //   subtract,
+  //   multiply,
+  //   divide,
+  //   correctGuesses: 0,
+  //   usersHighScore: 0,
+  //   correctClicked: false
+  // };
+
+  testClicked = (clicked, answer) => {
+    if (clicked === answer){
+      this.setState({correctClicked: true})
+    } else if (clicked !== answer){
+      this.setState({correctClicked: false})
+    }
+  }
 
   render() {
     return (
@@ -37,12 +61,12 @@ class App extends Component {
           <div className="row">
             {this.state.add.map(match => (
               <Card
-                setClicked={this.setClicked}
                 id={match.id}
                 key={match.id}
                 question={match.question}
                 answers={match.answers}
                 correctAnswer={match.correctAnswer}
+                testClick={this.testClicked}
               />
             ))}
           </div>
