@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "question": "1 x 1",
+        "answers": {
+            "A": 1,
+            "B": 2,
+            "C": 3,
+            "D": 4
+        },
+        "correctAnswer": "A 1"
+    },
+    {
+        "id": 2,
+        "question": "1 x 2",
+        "answers": {
+            "A": 2,
+            "B": 3,
+            "C": 4,
+            "D": 5
+        },
+        "correctAnswer": "B 2"
+    },
+    {
+        "id": 3,
+        "question": "1 x 3",
+        "answers": {
+            "A": 2,
+            "B": 3,
+            "C": 4,
+            "D": 5
+        },
+        "correctAnswer": "B 3"
+    },
+    {
+        "id": 4,
+        "question": "1 x 4",
+        "answers": {
+            "A": 2,
+            "B": 3,
+            "C": 4,
+            "D": 5
+        },
+        "correctAnswer": "C 4"
+    },
+    {
+        "id": 5,
+        "question": "1 x 5",
+        "answers": {
+            "A": 2,
+            "B": 3,
+            "C": 4,
+            "D": 5
+        },
+        "correctAnswer": "D 5"
+    }
+]
