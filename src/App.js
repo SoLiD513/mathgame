@@ -2,47 +2,47 @@ import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
-import add from "./add.json";
-import subtract from "./subtract.json";
-import multiply from "./multiply.json";
-import divide from "./divide.json";
+// import add from "./add.json";
+// import subtract from "./subtract.json";
+// import multiply from "./multiply.json";
+// import divide from "./divide.json";
+import math from "./math.json";
 import "./App.css";
 
-// let correctGuesses = 0;
-// let usersHighScore = 0;
-// let correctClicked;
+let correctGuesses = 0;
+let usersHighScore = 0;
 
 class App extends Component {
-  constructor(props) {
-  super(props);
-  this.state = {
-    add,
-    subtract,
-    multiply,
-    divide,
-    correctGuesses: 0,
-    usersHighScore: 0,
-    correctClicked: false
-  };
+  state = {
+      // add,
+      // subtract,
+      // multiply,
+      // divide,
+      math,
+      correctGuesses,
+      usersHighScore,
+      correctClicked: true,
+    };
 
-
-}
-  
-  // state = {
-  //   add,
-  //   subtract,
-  //   multiply,
-  //   divide,
-  //   correctGuesses: 0,
-  //   usersHighScore: 0,
-  //   correctClicked: false
-  // };
+    componentDidMount() {
+      math.sort(function(a, b) {
+        return 0.5 - Math.random();
+      });
+    };
 
   testClicked = (clicked, answer) => {
     if (clicked === answer){
+      correctGuesses++;
+      console.log(correctGuesses)
       this.setState({correctClicked: true})
-    } else if (clicked !== answer){
+      if (correctGuesses > usersHighScore) {
+        usersHighScore = correctGuesses;
+        this.setState({ usersHighScore });
+      }
+      console.log(this.state.correctClicked)
+    } else if (clicked === !answer){
       this.setState({correctClicked: false})
+      console.log(this.state.correctClicked)
     }
   }
 
@@ -52,14 +52,14 @@ class App extends Component {
         <div className="jumbotron">
           <Header>J-BOT Math!</Header>
           <h3 className="cardHeader">
-            Correct Guesses: {this.state.correctGuesses}
+            Correct Guesses: {correctGuesses}
             <br />
-            High Score: {this.state.usersHighScore}
+            High Score: {usersHighScore}
           </h3>
         </div>
         <div className="container">
           <div className="row">
-            {this.state.add.map(match => (
+            {this.state.math.map(match => (
               <Card
                 id={match.id}
                 key={match.id}

@@ -2,56 +2,61 @@
     {
         "id": 1,
         "question": "1 - 1",
-        "answers": {
-            "A": 0,
-            "B": 1,
-            "C": 2,
-            "D": 3
-        },
-        "correctAnswer": "A 0"
+        "answers": [
+            0,
+            1,
+            2,
+            3
+        ],
+        "correctAnswer": 0,
+        "clicked": false
     },
     {
         "id": 2,
         "question": "2 - 1",
-        "answers": {
-            "A": 1,
-            "B": 2,
-            "C": 3,
-            "D": 4
-        },
-        "correctAnswer": "A 1"
+        "answers": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "correctAnswer": 1,
+        "clicked": false
     },
     {
         "id": 3,
         "question": "3 - 1",
-        "answers": {
-            "A": 2,
-            "B": 3,
-            "C": 4,
-            "D": 5
-        },
-        "correctAnswer": "A 2"
+        "answers": [
+            2,
+            3,
+            4,
+            5
+        ],
+        "correctAnswer": 2,
+        "clicked": false
     },
     {
         "id": 4,
         "question": "4 - 1",
-        "answers": {
-            "A": 2,
-            "B": 3,
-            "C": 4,
-            "D": 5
-        },
-        "correctAnswer": "B 3"
+        "answers": [
+            2,
+            3,
+            4,
+            5
+        ],
+        "correctAnswer": 3,
+        "clicked": false
     },
     {
         "id": 5,
         "question": "5 - 1",
-        "answers": {
-            "A": 2,
-            "B": 3,
-            "C": 4,
-            "D": 5
-        },
-        "correctAnswer": "C 4"
+        "answers": [
+            2,
+            3,
+            4,
+            5
+        ],
+        "correctAnswer": 4,
+        "clicked": false
     }
 ]
