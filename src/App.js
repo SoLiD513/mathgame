@@ -15,36 +15,47 @@ let usersHighScore = 0;
 
 class App extends Component {
   state = {
-    // add,
-    // subtract,
-    // multiply,
-    // divide,
+    game: false,
     math,
     correctGuesses,
     usersHighScore,
-    correctClicked: true
+    correctClicked: false
   };
 
-  componentDidMount() {
+  componentDidUpdate() {
+    console.log(this.state.correctClicked);
+  }
+
+  startClicked() {
+    console.log("yay");
     math.sort(function(a, b) {
       return 0.5 - Math.random();
     });
+  }
+  componentDidMount() {
+    this.startClicked();
+  }
+
+  startGame = () => {
+    this.setState({game: true});
+
   }
 
   testClicked = (clicked, answer) => {
     if (clicked === answer) {
       correctGuesses++;
-      console.log(correctGuesses);
-      this.setState({ correctClicked: true });
+      this.setCorrectClicked(true);
       if (correctGuesses > usersHighScore) {
         usersHighScore = correctGuesses;
         this.setState({ usersHighScore });
       }
-      console.log(this.state.correctClicked);
-    } else if (clicked === !answer) {
-      this.setState({ correctClicked: false });
-      console.log(this.state.correctClicked);
+    } else if (clicked !== answer) {
+      this.setCorrectClicked(false);
     }
+  };
+
+  setCorrectClicked = bool => {
+    this.setState({ correctClicked: bool });
   };
 
   render() {
@@ -57,21 +68,21 @@ class App extends Component {
             <br />
             High Score: {usersHighScore}
           </h3>
-          <StartButton />
-        </div>
-        <div className="container">
-          <div className="row">
-            {this.state.math.map(match => (
-              <Card
-                id={match.id}
-                key={match.id}
-                question={match.question}
-                answers={match.answers}
-                correctAnswer={match.correctAnswer}
-                testClick={this.testClicked}
-              />
-            ))}
-          </div>
+          {!this.state.game ? <StartButton startClick={this.startGame} /> : <div className="container">
+              <div className="row">
+                {this.state.math.map(match => (
+                  <Card
+                    id={match.id}
+                    key={match.id}
+                    question={match.question}
+                    answers={match.answers}
+                    correctAnswer={match.correctAnswer}
+                    testClick={this.testClicked}
+                  />
+                ))}
+              </div>
+            </div>
+           }
         </div>
       </Wrapper>
     );
