@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import StartButton from "./components/StartButton";
 // import add from "./add.json";
 // import subtract from "./subtract.json";
 // import multiply from "./multiply.json";
@@ -14,37 +15,37 @@ let usersHighScore = 0;
 
 class App extends Component {
   state = {
-      // add,
-      // subtract,
-      // multiply,
-      // divide,
-      math,
-      correctGuesses,
-      usersHighScore,
-      correctClicked: true,
-    };
+    // add,
+    // subtract,
+    // multiply,
+    // divide,
+    math,
+    correctGuesses,
+    usersHighScore,
+    correctClicked: true
+  };
 
-    componentDidMount() {
-      math.sort(function(a, b) {
-        return 0.5 - Math.random();
-      });
-    };
+  componentDidMount() {
+    math.sort(function(a, b) {
+      return 0.5 - Math.random();
+    });
+  }
 
   testClicked = (clicked, answer) => {
-    if (clicked === answer){
+    if (clicked === answer) {
       correctGuesses++;
-      console.log(correctGuesses)
-      this.setState({correctClicked: true})
+      console.log(correctGuesses);
+      this.setState({ correctClicked: true });
       if (correctGuesses > usersHighScore) {
         usersHighScore = correctGuesses;
         this.setState({ usersHighScore });
       }
-      console.log(this.state.correctClicked)
-    } else if (clicked === !answer){
-      this.setState({correctClicked: false})
-      console.log(this.state.correctClicked)
+      console.log(this.state.correctClicked);
+    } else if (clicked === !answer) {
+      this.setState({ correctClicked: false });
+      console.log(this.state.correctClicked);
     }
-  }
+  };
 
   render() {
     return (
@@ -56,6 +57,7 @@ class App extends Component {
             <br />
             High Score: {usersHighScore}
           </h3>
+          <StartButton />
         </div>
         <div className="container">
           <div className="row">
