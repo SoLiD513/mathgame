@@ -3,10 +3,6 @@ import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import StartButton from "./components/StartButton";
-// import add from "./add.json";
-// import subtract from "./subtract.json";
-// import multiply from "./multiply.json";
-// import divide from "./divide.json";
 import math from "./math.json";
 import "./App.css";
 
@@ -14,7 +10,7 @@ let correctGuesses = 0;
 let usersHighScore = 0;
 let totalGuesses = 0;
 
-class App extends Component {
+class MathGame extends Component {
   state = {
     game: false,
     math,
@@ -58,18 +54,11 @@ class App extends Component {
         usersHighScore = correctGuesses;
         this.setState({ usersHighScore });
       }
-      // if (this.state.disabled === true) {
-      // console.log(this.state.disabled._id)
-      // }
     } else if (clicked !== answer) {
       totalGuesses++;
       this.setCorrectClicked(false);
       this.setState({ disabled: true });
     }
-    // else if (totalGuesses === 20) {
-    // this.setState({ disabled : true })
-    // alert("nope")
-    // }
     this.changeDisplayedQuestion();
   };
 
@@ -130,7 +119,7 @@ class App extends Component {
                       />
                     );
                   }
-                  return (true);
+                  return true;
                 })}
               </div>
             </div>
@@ -141,4 +130,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MathGame;
