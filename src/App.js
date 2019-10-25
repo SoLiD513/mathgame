@@ -12,6 +12,7 @@ import "./App.css";
 
 let correctGuesses = 0;
 let usersHighScore = 0;
+let totalGuesses = 0;
 
 class App extends Component {
   state = {
@@ -19,39 +20,55 @@ class App extends Component {
     math,
     correctGuesses,
     usersHighScore,
-    correctClicked: false
+    correctClicked: false,
+    disabled: false,
+    oldQuestions: []
   };
 
   componentDidUpdate() {
-    console.log(this.state.correctClicked);
-  }
+    console.log("Correct answer was clicked " + this.state.correctClicked)
+    console.log("Was this question disabled: " + this.state.disabled)
+  };
 
-  startClicked() {
-    console.log("yay");
-    math.sort(function(a, b) {
-      return 0.5 - Math.random();
-    });
-  }
   componentDidMount() {
     this.startClicked();
   }
 
+  startClicked() {
+    console.log("Page was loaded up");
+    math.sort(function(a, b) {
+      return 0.5 - Math.random();
+    });
+  }
+
   startGame = () => {
-    this.setState({game: true});
+    this.setState({ game : true });
 
   }
 
   testClicked = (clicked, answer) => {
     if (clicked === answer) {
       correctGuesses++;
+      totalGuesses++;
       this.setCorrectClicked(true);
+      this.setState({ disabled : true })
       if (correctGuesses > usersHighScore) {
         usersHighScore = correctGuesses;
         this.setState({ usersHighScore });
-      }
-    } else if (clicked !== answer) {
+      } 
+      // if (this.state.disabled === true) {
+// console.log(this.state.disabled._id)
+      // }
+    } 
+    else if (clicked !== answer) {
+      totalGuesses++;
       this.setCorrectClicked(false);
+      this.setState({ disabled : true })
     }
+    // else if (totalGuesses === 20) {
+      // this.setState({ disabled : true })
+      // alert("nope")
+    // }
   };
 
   setCorrectClicked = bool => {
@@ -66,9 +83,12 @@ class App extends Component {
           <h3 className="cardHeader">
             Correct Guesses: {correctGuesses}
             <br />
+            Total Guesses: {totalGuesses}
+            <br />
             High Score: {usersHighScore}
           </h3>
-          {!this.state.game ? <StartButton startClick={this.startGame} /> : <div className="container">
+          {!this.state.game ? <StartButton startClick={this.startGame} /> : 
+          <div className="container">
               <div className="row">
                 {this.state.math.map(match => (
                   <Card
@@ -86,7 +106,7 @@ class App extends Component {
         </div>
       </Wrapper>
     );
-  }
-}
+  };
+};
 
 export default App;
