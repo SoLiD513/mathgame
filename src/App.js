@@ -22,16 +22,19 @@ class App extends Component {
     usersHighScore,
     correctClicked: false,
     disabled: false,
-    oldQuestions: []
+    display: false,
+    displayQuestions: [true]
   };
 
   componentDidUpdate() {
-    console.log("Correct answer was clicked " + this.state.correctClicked)
-    console.log("Was this question disabled: " + this.state.disabled)
-  };
+    console.log("Answer was clicked " + this.state.correctClicked);
+    console.log("Was this question disabled: " + this.state.disabled);
+  }
 
   componentDidMount() {
     this.startClicked();
+    console.log(math);
+    this.mappingDisplayQuestions();
   }
 
   startClicked() {
@@ -42,37 +45,58 @@ class App extends Component {
   }
 
   startGame = () => {
-    this.setState({ game : true });
-
-  }
+    this.setState({ game: true });
+  };
 
   testClicked = (clicked, answer) => {
     if (clicked === answer) {
       correctGuesses++;
       totalGuesses++;
       this.setCorrectClicked(true);
-      this.setState({ disabled : true })
+      this.setState({ disabled: true });
       if (correctGuesses > usersHighScore) {
         usersHighScore = correctGuesses;
         this.setState({ usersHighScore });
-      } 
+      }
       // if (this.state.disabled === true) {
-// console.log(this.state.disabled._id)
+      // console.log(this.state.disabled._id)
       // }
-    } 
-    else if (clicked !== answer) {
+    } else if (clicked !== answer) {
       totalGuesses++;
       this.setCorrectClicked(false);
-      this.setState({ disabled : true })
+      this.setState({ disabled: true });
     }
     // else if (totalGuesses === 20) {
-      // this.setState({ disabled : true })
-      // alert("nope")
+    // this.setState({ disabled : true })
+    // alert("nope")
     // }
+    this.changeDisplayedQuestion();
+  };
+
+  changeDisplayedQuestion = () => {
+    let array = this.state.displayQuestions;
+    let indexToMakeTrue;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i]) {
+        indexToMakeTrue = i + 1;
+        array[i] = false;
+      } else {
+        array[i] = false;
+      }
+    }
+    array[indexToMakeTrue] = true;
+    this.setState({ displayQuestions: array });
   };
 
   setCorrectClicked = bool => {
     this.setState({ correctClicked: bool });
+  };
+
+  mappingDisplayQuestions = () => {
+    for (let i = 1; i < math.length; i++) {
+      this.state.displayQuestions.push(false);
+    }
+    console.log(this.state.displayQuestions);
   };
 
   render() {
@@ -87,26 +111,34 @@ class App extends Component {
             <br />
             High Score: {usersHighScore}
           </h3>
-          {!this.state.game ? <StartButton startClick={this.startGame} /> : 
-          <div className="container">
+          {!this.state.game ? (
+            <StartButton startClick={this.startGame} />
+          ) : (
+            <div className="container">
               <div className="row">
-                {this.state.math.map(match => (
-                  <Card
-                    id={match.id}
-                    key={match.id}
-                    question={match.question}
-                    answers={match.answers}
-                    correctAnswer={match.correctAnswer}
-                    testClick={this.testClicked}
-                  />
-                ))}
+                {this.state.displayQuestions.map((bool, i) => {
+                  if (bool === true) {
+                    return (
+                      <Card
+                        id={math[i].id}
+                        key={math[i].id}
+                        question={math[i].question}
+                        answers={math[i].answers}
+                        correctAnswer={math[i].correctAnswer}
+                        testClick={this.testClicked}
+                        clicked={`${math[i].clicked}`}
+                      />
+                    );
+                  }
+                  return (true);
+                })}
               </div>
             </div>
-           }
+          )}
         </div>
       </Wrapper>
     );
-  };
-};
+  }
+}
 
 export default App;

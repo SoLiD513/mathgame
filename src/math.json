@@ -10,7 +10,8 @@
         ],
         "correctAnswer": 2,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 2,
@@ -23,7 +24,8 @@
         ],
         "correctAnswer": 3,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 3,
@@ -36,7 +38,8 @@
         ],
         "correctAnswer": 4,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 4,
@@ -49,7 +52,8 @@
         ],
         "correctAnswer": 5,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 5,
@@ -62,7 +66,8 @@
         ],
         "correctAnswer": 6,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 6,
@@ -75,7 +80,8 @@
         ],
         "correctAnswer": 0,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 7,
@@ -88,7 +94,8 @@
         ],
         "correctAnswer": 1,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 8,
@@ -101,7 +108,8 @@
         ],
         "correctAnswer": 2,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 9,
@@ -114,7 +122,8 @@
         ],
         "correctAnswer": 3,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 10,
@@ -127,7 +136,8 @@
         ],
         "correctAnswer": 4,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 11,
@@ -140,7 +150,8 @@
         ],
         "correctAnswer": 1,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 12,
@@ -153,7 +164,8 @@
         ],
         "correctAnswer": 2,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 13,
@@ -166,7 +178,8 @@
         ],
         "correctAnswer": 3,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 14,
@@ -179,7 +192,8 @@
         ],
         "correctAnswer": 4,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 15,
@@ -192,7 +206,8 @@
         ],
         "correctAnswer": 5,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },{
         "id": 16,
         "question": "1 / 1 = ?",
@@ -204,7 +219,8 @@
         ],
         "correctAnswer": 1,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 17,
@@ -217,7 +233,8 @@
         ],
         "correctAnswer": 2,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 18,
@@ -230,7 +247,8 @@
         ],
         "correctAnswer": 3,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 19,
@@ -243,7 +261,8 @@
         ],
         "correctAnswer": 4,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     },
     {
         "id": 20,
@@ -256,6 +275,7 @@
         ],
         "correctAnswer": 5,
         "clicked": false,
-        "disabled": false
+        "disabled": false,
+        "display": false
     }
 ]
