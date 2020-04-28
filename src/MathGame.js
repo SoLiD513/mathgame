@@ -3,7 +3,7 @@ import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import StartButton from "./components/StartButton";
-import math from "./math.json";
+import math from "./jsonfiles/math.json";
 import "./App.css";
 
 let correctGuesses = 0;
